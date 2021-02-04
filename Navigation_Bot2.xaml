@@ -1,0 +1,1249 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Navigation_Bot2" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Selector_of_SearchMenu" Type="InArgument(x:String)" />
+    <x:Property Name="Search_in_Menu" Type="InArgument(x:String)" />
+    <x:Property Name="Selector_of_SpecificTab_Menu" Type="InArgument(x:String)" />
+    <x:Property Name="Search_UnderSpecific_Menu" Type="InArgument(x:String)" />
+    <x:Property Name="Navigation_OutPut" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>5440,6300</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="17">
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="22">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Sequence - Navigation-Bot" sap:VirtualizedContainerService.HintSize="5450,6135" sap2010:WorkflowViewState.IdRef="Sequence_189">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="Navigation_V4" />
+      <Variable x:TypeArguments="x:String" Name="Navigation_V2" />
+      <Variable x:TypeArguments="x:Boolean" Name="Navigation_V1" />
+      <Variable x:TypeArguments="x:Boolean" Name="Navigation_V5" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="5408,6043" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence sap:VirtualizedContainerService.HintSize="5370,5816" sap2010:WorkflowViewState.IdRef="Sequence_228">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:UiElementExists DisplayName="Element Exists 'DIV  navigiationOpenClo...'" Exists="[Navigation_V1]" sap:VirtualizedContainerService.HintSize="5328,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+            <ui:UiElementExists.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b58e7345-7fba-438d-9ac6-7ef933461b51" InformativeScreenshot="1b8e46405a4453ab41b9075f3caa30cd" Selector="&lt;html app='chrome.exe' title='CLEAR' /&gt;&lt;webctrl id='navigiationOpenClosePanel' tag='DIV' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:UiElementExists.Target>
+          </ui:UiElementExists>
+          <ui:UiElementExists DisplayName="Element Exists 'DIV'" Exists="[Navigation_V5]" sap:VirtualizedContainerService.HintSize="5328,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+            <ui:UiElementExists.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e2edb952-1f62-4d3f-8d0b-bae8434c2f6c" InformativeScreenshot="43096ea4baf0f5e24835e0bd1ceda956" Selector="&lt;html app='chrome.exe' title='CLEAR' /&gt;&#xA;&lt;webctrl isleaf='1' parentid='LeftPanel' tag='DIV' innertext='                 Last Login On*' /&gt;&#xA;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:UiElementExists.Target>
+          </ui:UiElementExists>
+          <If Condition="[Navigation_V1.Equals(True)]" DisplayName="If- Based on the Navigation icon navigating to Dashboard and Tabs" sap:VirtualizedContainerService.HintSize="5328,5432" sap2010:WorkflowViewState.IdRef="If_26">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="4949,5284" sap2010:WorkflowViewState.IdRef="Sequence_194">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If Condition="[Navigation_V5.Equals(True)]" sap:VirtualizedContainerService.HintSize="4907,5192" sap2010:WorkflowViewState.IdRef="If_31">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence sap:VirtualizedContainerService.HintSize="4486,5044" sap2010:WorkflowViewState.IdRef="Sequence_186">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="4444,91" sap2010:WorkflowViewState.IdRef="LogMessage_107" Level="Info" Message="[&quot;-----navigiationOpenClosePanel : Icon present on the daashboad-------&quot;]" />
+                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Get required Menu name" sap:VirtualizedContainerService.HintSize="4444,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_110" UnSafe="False" WorkflowFileName="WaitForElementAndGetText.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="selector">[Selector_of_SearchMenu]</InArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="getTextValue">[Navigation_V2]</OutArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Click on Menu" sap:VirtualizedContainerService.HintSize="4444,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_112" UnSafe="False" WorkflowFileName="WaitForElement.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="selector">[Selector_of_SearchMenu]</InArgument>
+                          <OutArgument x:TypeArguments="x:Boolean" x:Key="ELement_Result" />
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                      <If Condition="[Navigation_V2.Contains(Search_in_Menu)]" DisplayName="If - Condition to check for &quot;Search_in_Menu&quot;" sap:VirtualizedContainerService.HintSize="4444,4517" sap2010:WorkflowViewState.IdRef="If_27">
+                        <If.Then>
+                          <Sequence sap:VirtualizedContainerService.HintSize="4065,4369" sap2010:WorkflowViewState.IdRef="Sequence_187">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="4023,91" sap2010:WorkflowViewState.IdRef="LogMessage_110" Level="Info" Message="[&quot;-----------------------Search_in_Menu is matching-----------------------------&quot;]" />
+                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="4023,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_111" UnSafe="False" WorkflowFileName="WaitForElementAndGetText.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <InArgument x:TypeArguments="x:String" x:Key="selector">[Selector_of_SpecificTab_Menu]</InArgument>
+                                <OutArgument x:TypeArguments="x:String" x:Key="getTextValue">[Navigation_V4]</OutArgument>
+                              </ui:InvokeWorkflowFile.Arguments>
+                            </ui:InvokeWorkflowFile>
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="4023,91" sap2010:WorkflowViewState.IdRef="LogMessage_112" Level="Info" Message="[&quot;---------------------------&quot;+Navigation_V4+&quot;---------------------------&quot;]" />
+                            <If Condition="[Navigation_V4.Equals(Search_UnderSpecific_Menu)]" DisplayName="If - Condition to search for Specific menu under Menu" sap:VirtualizedContainerService.HintSize="4023,3863" sap2010:WorkflowViewState.IdRef="If_28">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If.Then>
+                                <Sequence sap:VirtualizedContainerService.HintSize="3778,3715" sap2010:WorkflowViewState.IdRef="Sequence_188">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="3736,91" sap2010:WorkflowViewState.IdRef="LogMessage_114" Level="Info" Message="[&quot;------------------Expected specific Menu is present under Menu------------------------------&quot;]" />
+                                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Click on Specific Menu under Menu" sap:VirtualizedContainerService.HintSize="3736,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_113" UnSafe="False" WorkflowFileName="WaitForElement.xaml">
+                                    <ui:InvokeWorkflowFile.Arguments>
+                                      <InArgument x:TypeArguments="x:String" x:Key="selector">[Selector_of_SpecificTab_Menu]</InArgument>
+                                      <OutArgument x:TypeArguments="x:Boolean" x:Key="ELement_Result">[Navigation_OutPut]</OutArgument>
+                                    </ui:InvokeWorkflowFile.Arguments>
+                                  </ui:InvokeWorkflowFile>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="3736,91" sap2010:WorkflowViewState.IdRef="LogMessage_116" Level="Info" Message="[&quot;------------------Expected specific Menu after click result is :&quot;+Navigation_OutPut.ToString]" />
+                                  <Sequence DisplayName="Sequence- To confirm Tab or Dashboard is completly loaded or not" sap:VirtualizedContainerService.HintSize="3736,3209" sap2010:WorkflowViewState.IdRef="Sequence_195">
+                                    <Sequence.Variables>
+                                      <Variable x:TypeArguments="x:Boolean" Name="Navigation_V6" />
+                                      <Variable x:TypeArguments="x:Boolean" Name="Navigation_V7" />
+                                    </Sequence.Variables>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <If Condition="[Search_in_Menu.Contains(&quot;Task&quot;)]" sap:VirtualizedContainerService.HintSize="3694,3117" sap2010:WorkflowViewState.IdRef="If_32">
+                                      <If.Then>
+                                        <Sequence DisplayName="Sequence- On Task Bard" sap:VirtualizedContainerService.HintSize="1681,2400" sap2010:WorkflowViewState.IdRef="Sequence_196">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1639,91" sap2010:WorkflowViewState.IdRef="LogMessage_134" Level="Info" Message="[&quot;------------------Waiting for 30 scends------------------&quot;]" />
+                                          <Delay Duration="00:00:30" sap:VirtualizedContainerService.HintSize="1639,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1639,91" sap2010:WorkflowViewState.IdRef="LogMessage_135" Level="Info" Message="[&quot;------------------Waited for 30 scends------------------&quot;]" />
+                                          <ui:UiElementExists DisplayName="Element Exists- On Search Icon" Exists="[Navigation_V6]" sap:VirtualizedContainerService.HintSize="1639,68" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+                                            <ui:UiElementExists.Target>
+                                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4be82bbb-f4cc-4d8c-8a31-103ffaf6604d" Selector="&lt;html app='chrome.exe' title='CLEAR' /&gt;&#xA;&lt;webctrl id='WCsrchIcon' tag='DIV' /&gt;&#xA;">
+                                                <ui:Target.TimeoutMS>
+                                                  <InArgument x:TypeArguments="x:Int32" />
+                                                </ui:Target.TimeoutMS>
+                                                <ui:Target.WaitForReady>
+                                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                </ui:Target.WaitForReady>
+                                              </ui:Target>
+                                            </ui:UiElementExists.Target>
+                                          </ui:UiElementExists>
+                                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1639,91" sap2010:WorkflowViewState.IdRef="LogMessage_136" Level="Info" Message="[&quot;----------------Identifying the Search icon is done ------------------&quot;]" />
+                                          <ui:UiElementExists DisplayName="Element Exists- On Status icon" Exists="[Navigation_V7]" sap:VirtualizedContainerService.HintSize="1639,68" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
+                                            <ui:UiElementExists.Target>
+                                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="673e5ea2-c51b-4287-89cc-77c3bdf60384" Selector="&lt;html app='chrome.exe' title='CLEAR' /&gt;&#xA;&lt;webctrl id='Status' tableRow='1' tag='DIV' /&gt;&#xA;">
+                                                <ui:Target.TimeoutMS>
+                                                  <InArgument x:TypeArguments="x:Int32" />
+                                                </ui:Target.TimeoutMS>
+                                                <ui:Target.WaitForReady>
+                                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                </ui:Target.WaitForReady>
+                                              </ui:Target>
+                                            </ui:UiElementExists.Target>
+                                          </ui:UiElementExists>
+                                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1639,91" sap2010:WorkflowViewState.IdRef="LogMessage_137" Level="Info" Message="[&quot;----------------Identifying the Status icon is done ------------------&quot;]" />
+                                          <If Condition="[(Navigation_V6 and Navigation_V7)=True]" DisplayName="If- On Search and Status icon on Task board" sap:VirtualizedContainerService.HintSize="1639,1506" sap2010:WorkflowViewState.IdRef="If_33">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <If.Then>
+                                              <Sequence sap:VirtualizedContainerService.HintSize="376,435" sap2010:WorkflowViewState.IdRef="Sequence_199">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_125" Level="Info" Message="[&quot;-------------------------Navigation to the Tab loaded successfully-------------&quot;]" />
+                                                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Boolean">[Navigation_OutPut]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_121" UnSafe="False" WorkflowFileName="Report.xaml">
+                                                  <ui:InvokeWorkflowFile.Arguments>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="addStatus">Pass</InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="addModules">Navigation</InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">["Navigation to"+Search_in_Menu+" : "+Search_UnderSpecific_Menu]</InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">[Config("Reportpath").ToString]</InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
+                                                  </ui:InvokeWorkflowFile.Arguments>
+                                                </ui:InvokeWorkflowFile>
+                                              </Sequence>
+                                            </If.Then>
+                                            <If.Else>
+                                              <Sequence sap:VirtualizedContainerService.HintSize="1218,1358" sap2010:WorkflowViewState.IdRef="Sequence_200">
+                                                <Sequence.Variables>
+                                                  <Variable x:TypeArguments="x:String" Name="Navigation_V11" />
+                                                </Sequence.Variables>
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1176,91" sap2010:WorkflowViewState.IdRef="LogMessage_126" Level="Info" Message="[&quot;-------------------------Navigation to the Tab is not successfully done-------------&quot;]" />
+                                                <Assign sap:VirtualizedContainerService.HintSize="1176,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Boolean">[Navigation_OutPut]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Get on the &quot;No Records Found&quot; message" sap:VirtualizedContainerService.HintSize="1176,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_120" UnSafe="False" WorkflowFileName="WaitForElementAndGetText.xaml">
+                                                  <ui:InvokeWorkflowFile.Arguments>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="selector" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
+&lt;webctrl tag='P' aaname='No Record(s) Found.' /&gt;
+</InArgument>
+                                                    <OutArgument x:TypeArguments="x:String" x:Key="getTextValue">[Navigation_V11]</OutArgument>
+                                                  </ui:InvokeWorkflowFile.Arguments>
+                                                </ui:InvokeWorkflowFile>
+                                                <If Condition="[Navigation_V11.Contains(&quot;No Record&quot;)]" DisplayName="If- On NO RECORDS Message" sap:VirtualizedContainerService.HintSize="1176,883" sap2010:WorkflowViewState.IdRef="If_37">
+                                                  <If.Then>
+                                                    <Sequence sap:VirtualizedContainerService.HintSize="376,435" sap2010:WorkflowViewState.IdRef="Sequence_204">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_132" Level="Error" Message="[&quot;----------------------------&quot;+Navigation_V11+&quot;-----------------------------&quot;]" />
+                                                      <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                                        <Assign.To>
+                                                          <OutArgument x:TypeArguments="x:Boolean">[Navigation_OutPut]</OutArgument>
+                                                        </Assign.To>
+                                                        <Assign.Value>
+                                                          <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                                        </Assign.Value>
+                                                      </Assign>
+                                                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_122" UnSafe="False" WorkflowFileName="Report.xaml">
+                                                        <ui:InvokeWorkflowFile.Arguments>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="addStatus">Fail</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="addModules">Navigation</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">["Navigation to"+Search_in_Menu+" : "+Search_UnderSpecific_Menu]</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">[Config("Reportpath").ToString]</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
+                                                        </ui:InvokeWorkflowFile.Arguments>
+                                                      </ui:InvokeWorkflowFile>
+                                                    </Sequence>
+                                                  </If.Then>
+                                                  <If.Else>
+                                                    <Sequence DisplayName="Sequence- If the Internal server error" sap:VirtualizedContainerService.HintSize="755,735" sap2010:WorkflowViewState.IdRef="Sequence_205">
+                                                      <Sequence.Variables>
+                                                        <Variable x:TypeArguments="x:String" Name="Navigation_V12" />
+                                                      </Sequence.Variables>
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="713,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_128" UnSafe="False" WorkflowFileName="WaitForElementAndGetText.xaml">
+                                                        <ui:InvokeWorkflowFile.Arguments>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="selector" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
+&lt;webctrl aaname='Internal error occurred....' parentid='errorDetails' tag='DIV' innertext='Internal error occurred....' /&gt;
+</InArgument>
+                                                          <OutArgument x:TypeArguments="x:String" x:Key="getTextValue">[Navigation_V12]</OutArgument>
+                                                        </ui:InvokeWorkflowFile.Arguments>
+                                                      </ui:InvokeWorkflowFile>
+                                                      <If Condition="[Navigation_V12.Contains(&quot;Internal error&quot;)]" sap:VirtualizedContainerService.HintSize="713,239" sap2010:WorkflowViewState.IdRef="If_38">
+                                                        <If.Then>
+                                                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_133" Level="Error" Message="[&quot;------------------Navigation is not done successfully+------------------------&quot;]" />
+                                                        </If.Then>
+                                                        <If.Else>
+                                                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_142" Level="Error" Message="[&quot;------------------Navigation is not done successfully with other issues------------------------&quot;]" />
+                                                        </If.Else>
+                                                      </If>
+                                                      <Assign sap:VirtualizedContainerService.HintSize="713,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                                                        <Assign.To>
+                                                          <OutArgument x:TypeArguments="x:Boolean">[Navigation_OutPut]</OutArgument>
+                                                        </Assign.To>
+                                                        <Assign.Value>
+                                                          <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                                        </Assign.Value>
+                                                      </Assign>
+                                                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="713,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_123" UnSafe="False" WorkflowFileName="Report.xaml">
+                                                        <ui:InvokeWorkflowFile.Arguments>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="addStatus">Fail</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="addModules">Navigation</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">["Navigation to"+Search_in_Menu+" : "+Search_UnderSpecific_Menu]</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">[Config("Reportpath").ToString]</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
+                                                        </ui:InvokeWorkflowFile.Arguments>
+                                                      </ui:InvokeWorkflowFile>
+                                                    </Sequence>
+                                                  </If.Else>
+                                                </If>
+                                              </Sequence>
+                                            </If.Else>
+                                          </If>
+                                        </Sequence>
+                                      </If.Then>
+                                      <If.Else>
+                                        <If Condition="[Search_in_Menu.Contains(&quot;Process&quot;)]" DisplayName="If- On Process monitor dashboard" sap:VirtualizedContainerService.HintSize="1968,2969" sap2010:WorkflowViewState.IdRef="If_34">
+                                          <If.Then>
+                                            <Sequence DisplayName="Sequence- On Process Monitor Dashboard" sap:VirtualizedContainerService.HintSize="1723,2821" sap2010:WorkflowViewState.IdRef="Sequence_197">
+                                              <Sequence.Variables>
+                                                <Variable x:TypeArguments="x:Boolean" Name="Navigation_V8" />
+                                              </Sequence.Variables>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1368,91" sap2010:WorkflowViewState.IdRef="LogMessage_138" Level="Info" Message="[&quot;------------------Waiting for 30 scends------------------&quot;]" />
+                                              <Delay Duration="00:00:30" sap:VirtualizedContainerService.HintSize="1368,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1681,91" sap2010:WorkflowViewState.IdRef="LogMessage_139" Level="Info" Message="[&quot;------------------Waited for 30 scends------------------&quot;]" />
+                                              <ui:UiElementExists DisplayName="Element Exists- On Search Icon" Exists="[Navigation_V6]" sap:VirtualizedContainerService.HintSize="1681,68" sap2010:WorkflowViewState.IdRef="UiElementExists_5">
+                                                <ui:UiElementExists.Target>
+                                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2a482514-cdb1-4968-8423-91152bed3645" Selector="&lt;html app='chrome.exe' title='CLEAR' /&gt;&#xA;&lt;webctrl id='WCsrchIcon' tag='DIV' /&gt;">
+                                                    <ui:Target.TimeoutMS>
+                                                      <InArgument x:TypeArguments="x:Int32" />
+                                                    </ui:Target.TimeoutMS>
+                                                    <ui:Target.WaitForReady>
+                                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                    </ui:Target.WaitForReady>
+                                                  </ui:Target>
+                                                </ui:UiElementExists.Target>
+                                              </ui:UiElementExists>
+                                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1681,91" sap2010:WorkflowViewState.IdRef="LogMessage_140" Level="Info" Message="[&quot;----------------Identifying the Search icon is done ------------------&quot;]" />
+                                              <ui:UiElementExists DisplayName="Element Exists- On Title on Process monitor dashboard" Exists="[Navigation_V8]" sap:VirtualizedContainerService.HintSize="1681,68" sap2010:WorkflowViewState.IdRef="UiElementExists_6">
+                                                <ui:UiElementExists.Target>
+                                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="65cec655-ef10-43d7-b349-850380d403ef" Selector="&lt;html app='chrome.exe' title='CLEAR' /&gt;&#xA;&lt;webctrl parentid='verticalText_0' tableRow='1' tag='SPAN' /&gt;&#xA;">
+                                                    <ui:Target.TimeoutMS>
+                                                      <InArgument x:TypeArguments="x:Int32" />
+                                                    </ui:Target.TimeoutMS>
+                                                    <ui:Target.WaitForReady>
+                                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                    </ui:Target.WaitForReady>
+                                                  </ui:Target>
+                                                </ui:UiElementExists.Target>
+                                              </ui:UiElementExists>
+                                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1681,91" sap2010:WorkflowViewState.IdRef="LogMessage_141" Level="Info" Message="[&quot;----------------Identifying the Status icon is done ------------------&quot;]" />
+                                              <If Condition="[(Navigation_V6 and Navigation_V8)=True]" DisplayName="If- On Search and Title on Process monitor dashboard" sap:VirtualizedContainerService.HintSize="1681,1927" sap2010:WorkflowViewState.IdRef="If_35">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <If.Then>
+                                                  <Sequence sap:VirtualizedContainerService.HintSize="376,435" sap2010:WorkflowViewState.IdRef="Sequence_201">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_127" Level="Info" Message="[&quot;-------------------------Navigation to the Dashboard loaded successfully-------------&quot;]" />
+                                                    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                                      <Assign.To>
+                                                        <OutArgument x:TypeArguments="x:Boolean">[Navigation_OutPut]</OutArgument>
+                                                      </Assign.To>
+                                                      <Assign.Value>
+                                                        <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                      </Assign.Value>
+                                                    </Assign>
+                                                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_124" UnSafe="False" WorkflowFileName="Report.xaml">
+                                                      <ui:InvokeWorkflowFile.Arguments>
+                                                        <InArgument x:TypeArguments="x:String" x:Key="addStatus">Pass</InArgument>
+                                                        <InArgument x:TypeArguments="x:String" x:Key="addModules">Navigation</InArgument>
+                                                        <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">["Navigation to"+Search_in_Menu+" : "+Search_UnderSpecific_Menu]</InArgument>
+                                                        <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">[Config("Reportpath").ToString]</InArgument>
+                                                        <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
+                                                      </ui:InvokeWorkflowFile.Arguments>
+                                                    </ui:InvokeWorkflowFile>
+                                                  </Sequence>
+                                                </If.Then>
+                                                <If.Else>
+                                                  <Sequence DisplayName="Sequence - TO BE DISCUSS" sap:VirtualizedContainerService.HintSize="1260,1779" sap2010:WorkflowViewState.IdRef="Sequence_198">
+                                                    <Sequence.Variables>
+                                                      <Variable x:TypeArguments="x:Boolean" Name="Navigation_V10" />
+                                                      <Variable x:TypeArguments="x:Boolean" Name="Navigation_V12" />
+                                                    </Sequence.Variables>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1218,91" sap2010:WorkflowViewState.IdRef="LogMessage_128" Level="Info" Message="[&quot;-------------------------Navigation to the Dashboard is not successfully done-------------&quot;]" />
+                                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1218,91" sap2010:WorkflowViewState.IdRef="LogMessage_173" Level="Info" Message="[&quot;-------------------------waiting for 10 sec-------------&quot;]" />
+                                                    <Delay Duration="00:00:10" sap:VirtualizedContainerService.HintSize="1218,22" sap2010:WorkflowViewState.IdRef="Delay_5" />
+                                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1218,91" sap2010:WorkflowViewState.IdRef="LogMessage_174" Level="Info" Message="[&quot;-------------------------waited for 10 sec-------------&quot;]" />
+                                                    <ui:UiElementExists DisplayName="Element Exists - No record found" Exists="[Navigation_V10]" sap:VirtualizedContainerService.HintSize="1218,68" sap2010:WorkflowViewState.IdRef="UiElementExists_11">
+                                                      <ui:UiElementExists.Target>
+                                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8233abaf-f219-4fb8-bc10-ed59b973a3d3" Selector="&lt;html app='chrome.exe' title='CLEAR' /&gt;&#xA;&lt;webctrl tag='P' aaname='No Record(s) Found.' innertext='No Record(s) Found.' /&gt;&#xA;">
+                                                          <ui:Target.TimeoutMS>
+                                                            <InArgument x:TypeArguments="x:Int32" />
+                                                          </ui:Target.TimeoutMS>
+                                                          <ui:Target.WaitForReady>
+                                                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                          </ui:Target.WaitForReady>
+                                                        </ui:Target>
+                                                      </ui:UiElementExists.Target>
+                                                    </ui:UiElementExists>
+                                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1218,91" sap2010:WorkflowViewState.IdRef="LogMessage_175" Level="Info" Message="[&quot;-------------------------waiting for 10 sec-------------&quot;]" />
+                                                    <Delay Duration="00:00:10" sap:VirtualizedContainerService.HintSize="1218,22" sap2010:WorkflowViewState.IdRef="Delay_6" />
+                                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1218,91" sap2010:WorkflowViewState.IdRef="LogMessage_176" Level="Info" Message="[&quot;-------------------------waited for 10 sec-------------&quot;]" />
+                                                    <ui:UiElementExists DisplayName="Element Exists - Internal Server error" Exists="[Navigation_V12]" sap:VirtualizedContainerService.HintSize="1218,68" sap2010:WorkflowViewState.IdRef="UiElementExists_12">
+                                                      <ui:UiElementExists.Target>
+                                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="47b29806-9fd1-4546-ae39-147d0a9e4708" Selector="&lt;html app='chrome.exe' title='CLEAR' /&gt;&#xA;&lt;webctrl aaname='Internal error occurred....' parentid='errorDetails' tag='DIV' innertext='Internal error occurred....' /&gt;&#xA;">
+                                                          <ui:Target.TimeoutMS>
+                                                            <InArgument x:TypeArguments="x:Int32" />
+                                                          </ui:Target.TimeoutMS>
+                                                          <ui:Target.WaitForReady>
+                                                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                          </ui:Target.WaitForReady>
+                                                        </ui:Target>
+                                                      </ui:UiElementExists.Target>
+                                                    </ui:UiElementExists>
+                                                    <If Condition="[Navigation_V10 or Navigation_V1]" sap:VirtualizedContainerService.HintSize="1218,692" sap2010:WorkflowViewState.IdRef="If_36">
+                                                      <If.Then>
+                                                        <Sequence sap:VirtualizedContainerService.HintSize="839,544" sap2010:WorkflowViewState.IdRef="Sequence_227">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <If Condition="[Navigation_V10]" sap:VirtualizedContainerService.HintSize="797,452" sap2010:WorkflowViewState.IdRef="If_50">
+                                                            <If.Then>
+                                                              <Sequence sap:VirtualizedContainerService.HintSize="376,304" sap2010:WorkflowViewState.IdRef="Sequence_202">
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                                                  <Assign.To>
+                                                                    <OutArgument x:TypeArguments="x:Boolean">[Navigation_OutPut]</OutArgument>
+                                                                  </Assign.To>
+                                                                  <Assign.Value>
+                                                                    <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                                                  </Assign.Value>
+                                                                </Assign>
+                                                                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_125" UnSafe="False" WorkflowFileName="Report.xaml">
+                                                                  <ui:InvokeWorkflowFile.Arguments>
+                                                                    <InArgument x:TypeArguments="x:String" x:Key="addStatus">Fail</InArgument>
+                                                                    <InArgument x:TypeArguments="x:String" x:Key="addModules">Navigation</InArgument>
+                                                                    <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">["Navigation to"+Search_in_Menu+" : "+Search_UnderSpecific_Menu +"No records fould"]</InArgument>
+                                                                    <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">[Config("Reportpath").ToString]</InArgument>
+                                                                    <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
+                                                                  </ui:InvokeWorkflowFile.Arguments>
+                                                                </ui:InvokeWorkflowFile>
+                                                              </Sequence>
+                                                            </If.Then>
+                                                            <If.Else>
+                                                              <Sequence DisplayName="Sequence- If the Internal server error" sap:VirtualizedContainerService.HintSize="376,304" sap2010:WorkflowViewState.IdRef="Sequence_208">
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                                                  <Assign.To>
+                                                                    <OutArgument x:TypeArguments="x:Boolean">[Navigation_OutPut]</OutArgument>
+                                                                  </Assign.To>
+                                                                  <Assign.Value>
+                                                                    <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                                                  </Assign.Value>
+                                                                </Assign>
+                                                                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_130" UnSafe="False" WorkflowFileName="Report.xaml">
+                                                                  <ui:InvokeWorkflowFile.Arguments>
+                                                                    <InArgument x:TypeArguments="x:String" x:Key="addStatus">Fail</InArgument>
+                                                                    <InArgument x:TypeArguments="x:String" x:Key="addModules">Navigation</InArgument>
+                                                                    <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">["Navigation to"+Search_in_Menu+" : "+Search_UnderSpecific_Menu + "Internal Server Error"]</InArgument>
+                                                                    <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">[Config("Reportpath").ToString]</InArgument>
+                                                                    <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
+                                                                  </ui:InvokeWorkflowFile.Arguments>
+                                                                </ui:InvokeWorkflowFile>
+                                                              </Sequence>
+                                                            </If.Else>
+                                                          </If>
+                                                        </Sequence>
+                                                      </If.Then>
+                                                      <If.Else>
+                                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_172" Level="Error" Message="[&quot;Other Error is displaying in the Tab or dashboard&quot;]" />
+                                                      </If.Else>
+                                                    </If>
+                                                  </Sequence>
+                                                </If.Else>
+                                              </If>
+                                            </Sequence>
+                                          </If.Then>
+                                          <If.Else>
+                                            <Sequence sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_207">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <Sequence sap:VirtualizedContainerService.HintSize="376,310" sap2010:WorkflowViewState.IdRef="Sequence_206">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_131" Level="Warn" Message="[&quot;---------------------Navigation is not on the Task Board or Dashboard----------------------------&quot;]">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </ui:LogMessage>
+                                                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_127" UnSafe="False" WorkflowFileName="Report.xaml">
+                                                  <ui:InvokeWorkflowFile.Arguments>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="addStatus">Fail</InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="addModules">Navigation</InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">["Navigation to"+Search_in_Menu+" : "+Search_UnderSpecific_Menu]</InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">[Config("Reportpath").ToString]</InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
+                                                  </ui:InvokeWorkflowFile.Arguments>
+                                                </ui:InvokeWorkflowFile>
+                                              </Sequence>
+                                            </Sequence>
+                                          </If.Else>
+                                        </If>
+                                      </If.Else>
+                                    </If>
+                                  </Sequence>
+                                </Sequence>
+                              </If.Then>
+                              <If.Else>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_115" Level="Error" Message="[&quot;------------------Expected specific Menu is not present under Menu------------------------------&quot;]">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:LogMessage>
+                              </If.Else>
+                            </If>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_111" Level="Error" Message="[&quot;-----------------------Search_in_Menu is not matching-----------------------------&quot;]" />
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence sap:VirtualizedContainerService.HintSize="376,507" sap2010:WorkflowViewState.IdRef="Sequence_193">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_117" Level="Warn" Message="[&quot;------------------Main Menu is hidden and try to Click on Menu icon---------------&quot;]" />
+                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Click on Menu icon to visiable the menu options" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_114" UnSafe="False" WorkflowFileName="WaitForElement.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="selector" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
+&lt;webctrl id='navigiationOpenClosePanel' tag='DIV' /&gt;
+</InArgument>
+                          <OutArgument x:TypeArguments="x:Boolean" x:Key="ELement_Result" />
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                        <ui:CommentOut.Body>
+                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="1260,158" sap2010:WorkflowViewState.IdRef="Sequence_209">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Sequence sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_192">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1176,91" sap2010:WorkflowViewState.IdRef="LogMessage_118" Level="Info" Message="[&quot;-----navigiationOpenClosePanel : Icon present on the daashboad-------&quot;]" />
+                              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Get required Menu name" sap:VirtualizedContainerService.HintSize="1176,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_115" UnSafe="False" WorkflowFileName="WaitForElementAndGetText.xaml">
+                                <ui:InvokeWorkflowFile.Arguments>
+                                  <InArgument x:TypeArguments="x:String" x:Key="selector">[Selector_of_SearchMenu]</InArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="getTextValue">[Navigation_V2]</OutArgument>
+                                </ui:InvokeWorkflowFile.Arguments>
+                              </ui:InvokeWorkflowFile>
+                              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Click on Menu" sap:VirtualizedContainerService.HintSize="1176,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_116" UnSafe="False" WorkflowFileName="WaitForElement.xaml">
+                                <ui:InvokeWorkflowFile.Arguments>
+                                  <InArgument x:TypeArguments="x:String" x:Key="selector">[Selector_of_SearchMenu]</InArgument>
+                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="ELement_Result" />
+                                </ui:InvokeWorkflowFile.Arguments>
+                              </ui:InvokeWorkflowFile>
+                              <If Condition="[Navigation_V2.Contains(Search_in_Menu)]" DisplayName="If - Condition to check for &quot;Search_in_Menu&quot;" sap:VirtualizedContainerService.HintSize="1176,1218" sap2010:WorkflowViewState.IdRef="If_30">
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="797,1070" sap2010:WorkflowViewState.IdRef="Sequence_191">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="755,91" sap2010:WorkflowViewState.IdRef="LogMessage_119" Level="Info" Message="[&quot;-----------------------Search_in_Menu is matching-----------------------------&quot;]" />
+                                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="755,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_117" UnSafe="False" WorkflowFileName="WaitForElementAndGetText.xaml">
+                                      <ui:InvokeWorkflowFile.Arguments>
+                                        <InArgument x:TypeArguments="x:String" x:Key="selector">[Selector_of_SpecificTab_Menu]</InArgument>
+                                        <OutArgument x:TypeArguments="x:String" x:Key="getTextValue">[Navigation_V4]</OutArgument>
+                                      </ui:InvokeWorkflowFile.Arguments>
+                                    </ui:InvokeWorkflowFile>
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="755,91" sap2010:WorkflowViewState.IdRef="LogMessage_120" Level="Info" Message="[&quot;---------------------------&quot;+Navigation_V4+&quot;---------------------------&quot;]" />
+                                    <If Condition="[Navigation_V4.Equals(Search_UnderSpecific_Menu)]" DisplayName="If - Condition to search for Specific menu under Menu" sap:VirtualizedContainerService.HintSize="755,589" sap2010:WorkflowViewState.IdRef="If_29">
+                                      <If.Then>
+                                        <Sequence sap:VirtualizedContainerService.HintSize="376,441" sap2010:WorkflowViewState.IdRef="Sequence_190">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_121" Level="Info" Message="[&quot;------------------Expected specific Menu is present under Menu------------------------------&quot;]" />
+                                          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Click on Specific Menu under Menu" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_118" UnSafe="False" WorkflowFileName="WaitForElement.xaml">
+                                            <ui:InvokeWorkflowFile.Arguments>
+                                              <InArgument x:TypeArguments="x:String" x:Key="selector">[Selector_of_SpecificTab_Menu]</InArgument>
+                                              <OutArgument x:TypeArguments="x:Boolean" x:Key="ELement_Result">[Navigation_OutPut]</OutArgument>
+                                            </ui:InvokeWorkflowFile.Arguments>
+                                          </ui:InvokeWorkflowFile>
+                                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_122" Level="Info" Message="[&quot;------------------Expected specific Menu after click result is :&quot;+Navigation_OutPut.ToString]" />
+                                        </Sequence>
+                                      </If.Then>
+                                      <If.Else>
+                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_123" Level="Error" Message="[&quot;------------------Expected specific Menu is not present under Menu------------------------------&quot;]" />
+                                      </If.Else>
+                                    </If>
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_124" Level="Error" Message="[&quot;-----------------------Search_in_Menu is not matching-----------------------------&quot;]" />
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </Sequence>
+                        </ui:CommentOut.Body>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:CommentOut>
+                      <Sequence sap:VirtualizedContainerService.HintSize="334,66" sap2010:WorkflowViewState.IdRef="Sequence_226">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="3889,91" sap2010:WorkflowViewState.IdRef="LogMessage_145" Level="Info" Message="[&quot;-----navigiationOpenClosePanel : Icon present on the daashboad-------&quot;]" />
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Get required Menu name" sap:VirtualizedContainerService.HintSize="3889,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_131" UnSafe="False" WorkflowFileName="WaitForElementAndGetText.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InArgument x:TypeArguments="x:String" x:Key="selector">[Selector_of_SearchMenu]</InArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="getTextValue">[Navigation_V2]</OutArgument>
+                          </ui:InvokeWorkflowFile.Arguments>
+                        </ui:InvokeWorkflowFile>
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Click on Menu" sap:VirtualizedContainerService.HintSize="3889,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_132" UnSafe="False" WorkflowFileName="WaitForElement.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InArgument x:TypeArguments="x:String" x:Key="selector">[Selector_of_SearchMenu]</InArgument>
+                            <OutArgument x:TypeArguments="x:Boolean" x:Key="ELement_Result" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                        </ui:InvokeWorkflowFile>
+                        <If Condition="[Navigation_V2.Contains(Search_in_Menu)]" DisplayName="If - Condition to check for &quot;Search_in_Menu&quot;" sap:VirtualizedContainerService.HintSize="3889,3963" sap2010:WorkflowViewState.IdRef="If_49">
+                          <If.Then>
+                            <Sequence sap:VirtualizedContainerService.HintSize="3510,3815" sap2010:WorkflowViewState.IdRef="Sequence_225">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="3468,91" sap2010:WorkflowViewState.IdRef="LogMessage_146" Level="Info" Message="[&quot;-----------------------Search_in_Menu is matching-----------------------------&quot;]" />
+                              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="3468,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_133" UnSafe="False" WorkflowFileName="WaitForElementAndGetText.xaml">
+                                <ui:InvokeWorkflowFile.Arguments>
+                                  <InArgument x:TypeArguments="x:String" x:Key="selector">[Selector_of_SpecificTab_Menu]</InArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="getTextValue">[Navigation_V4]</OutArgument>
+                                </ui:InvokeWorkflowFile.Arguments>
+                              </ui:InvokeWorkflowFile>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="3468,91" sap2010:WorkflowViewState.IdRef="LogMessage_147" Level="Info" Message="[&quot;---------------------------&quot;+Navigation_V4+&quot;---------------------------&quot;]" />
+                              <If Condition="[Navigation_V4.Equals(Search_UnderSpecific_Menu)]" DisplayName="If - Condition to search for Specific menu under Menu" sap:VirtualizedContainerService.HintSize="3468,3334" sap2010:WorkflowViewState.IdRef="If_48">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="3223,3186" sap2010:WorkflowViewState.IdRef="Sequence_224">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="3181,91" sap2010:WorkflowViewState.IdRef="LogMessage_148" Level="Info" Message="[&quot;------------------Expected specific Menu is present under Menu------------------------------&quot;]" />
+                                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Click on Specific Menu under Menu" sap:VirtualizedContainerService.HintSize="3181,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_134" UnSafe="False" WorkflowFileName="WaitForElement.xaml">
+                                      <ui:InvokeWorkflowFile.Arguments>
+                                        <InArgument x:TypeArguments="x:String" x:Key="selector">[Selector_of_SpecificTab_Menu]</InArgument>
+                                        <OutArgument x:TypeArguments="x:Boolean" x:Key="ELement_Result">[Navigation_OutPut]</OutArgument>
+                                      </ui:InvokeWorkflowFile.Arguments>
+                                    </ui:InvokeWorkflowFile>
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="3181,91" sap2010:WorkflowViewState.IdRef="LogMessage_149" Level="Info" Message="[&quot;------------------Expected specific Menu after click result is :&quot;+Navigation_OutPut.ToString]" />
+                                    <Sequence DisplayName="Sequence- To confirm Tab or Dashboard is completly loaded or not" sap:VirtualizedContainerService.HintSize="3181,2705" sap2010:WorkflowViewState.IdRef="Sequence_223">
+                                      <Sequence.Variables>
+                                        <Variable x:TypeArguments="x:Boolean" Name="Navigation_V6" />
+                                        <Variable x:TypeArguments="x:Boolean" Name="Navigation_V7" />
+                                      </Sequence.Variables>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <If Condition="[Search_in_Menu.Contains(&quot;Task&quot;)]" sap:VirtualizedContainerService.HintSize="3139,2613" sap2010:WorkflowViewState.IdRef="If_47">
+                                        <If.Then>
+                                          <Sequence DisplayName="Sequence- On Task Bard" sap:VirtualizedContainerService.HintSize="1126,2050" sap2010:WorkflowViewState.IdRef="Sequence_214">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1084,91" sap2010:WorkflowViewState.IdRef="LogMessage_150" Level="Info" Message="[&quot;------------------Waiting for 30 scends------------------&quot;]" />
+                                            <Delay Duration="00:00:30" sap:VirtualizedContainerService.HintSize="1084,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1084,91" sap2010:WorkflowViewState.IdRef="LogMessage_151" Level="Info" Message="[&quot;------------------Waited for 30 scends------------------&quot;]" />
+                                            <ui:UiElementExists DisplayName="Element Exists- On Search Icon" Exists="[Navigation_V6]" sap:VirtualizedContainerService.HintSize="1084,68" sap2010:WorkflowViewState.IdRef="UiElementExists_7">
+                                              <ui:UiElementExists.Target>
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0ab2909e-9c65-4d56-bf4e-69c06acf00b6" Selector="&lt;html app='chrome.exe' title='CLEAR' /&gt;&#xA;&lt;webctrl id='WCsrchIcon' tag='DIV' /&gt;&#xA;">
+                                                  <ui:Target.TimeoutMS>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:Target.TimeoutMS>
+                                                  <ui:Target.WaitForReady>
+                                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                  </ui:Target.WaitForReady>
+                                                </ui:Target>
+                                              </ui:UiElementExists.Target>
+                                            </ui:UiElementExists>
+                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1084,91" sap2010:WorkflowViewState.IdRef="LogMessage_152" Level="Info" Message="[&quot;----------------Identifying the Search icon is done ------------------&quot;]" />
+                                            <ui:UiElementExists DisplayName="Element Exists- On Status icon" Exists="[Navigation_V7]" sap:VirtualizedContainerService.HintSize="1084,68" sap2010:WorkflowViewState.IdRef="UiElementExists_8">
+                                              <ui:UiElementExists.Target>
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="835172af-185b-42ae-bf85-0078e8bbe2c0" Selector="&lt;html app='chrome.exe' title='CLEAR' /&gt;&#xA;&lt;webctrl id='Status' tableRow='1' tag='DIV' /&gt;&#xA;">
+                                                  <ui:Target.TimeoutMS>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:Target.TimeoutMS>
+                                                  <ui:Target.WaitForReady>
+                                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                  </ui:Target.WaitForReady>
+                                                </ui:Target>
+                                              </ui:UiElementExists.Target>
+                                            </ui:UiElementExists>
+                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1084,91" sap2010:WorkflowViewState.IdRef="LogMessage_153" Level="Info" Message="[&quot;----------------Identifying the Status icon is done ------------------&quot;]" />
+                                            <If Condition="[(Navigation_V6 and Navigation_V7)=True]" DisplayName="If- On Search and Status icon on Task board" sap:VirtualizedContainerService.HintSize="1084,1156" sap2010:WorkflowViewState.IdRef="If_42">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <If.Then>
+                                                <Sequence sap:VirtualizedContainerService.HintSize="376,410" sap2010:WorkflowViewState.IdRef="Sequence_210">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_154" Level="Info" Message="[&quot;-------------------------Navigation to the Tab loaded successfully-------------&quot;]" />
+                                                  <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:Boolean">[Navigation_OutPut]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_135" UnSafe="False" WorkflowFileName="Report.xaml">
+                                                    <ui:InvokeWorkflowFile.Arguments>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="addStatus">Pass</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="addModules">Navigation</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">["Navigation to"+Search_in_Menu+" : "+Search_UnderSpecific_Menu]</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">[Config("Reportpath").ToString]</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
+                                                    </ui:InvokeWorkflowFile.Arguments>
+                                                  </ui:InvokeWorkflowFile>
+                                                </Sequence>
+                                              </If.Then>
+                                              <If.Else>
+                                                <Sequence sap:VirtualizedContainerService.HintSize="663,1008" sap2010:WorkflowViewState.IdRef="Sequence_213">
+                                                  <Sequence.Variables>
+                                                    <Variable x:TypeArguments="x:String" Name="Navigation_V11" />
+                                                  </Sequence.Variables>
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="621,91" sap2010:WorkflowViewState.IdRef="LogMessage_155" Level="Info" Message="[&quot;-------------------------Navigation to the Tab is not successfully done-------------&quot;]" />
+                                                  <Assign sap:VirtualizedContainerService.HintSize="621,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:Boolean">[Navigation_OutPut]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Get on the &quot;No Records Found&quot; message" sap:VirtualizedContainerService.HintSize="621,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_136" UnSafe="False" WorkflowFileName="WaitForElementAndGetText.xaml">
+                                                    <ui:InvokeWorkflowFile.Arguments>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="selector" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
+&lt;webctrl tag='P' aaname='No Record(s) Found.' /&gt;
+</InArgument>
+                                                      <OutArgument x:TypeArguments="x:String" x:Key="getTextValue">[Navigation_V11]</OutArgument>
+                                                    </ui:InvokeWorkflowFile.Arguments>
+                                                  </ui:InvokeWorkflowFile>
+                                                  <If Condition="[Navigation_V11.Contains(&quot;No Record&quot;)]" DisplayName="If- On NO RECORDS Message" sap:VirtualizedContainerService.HintSize="621,558" sap2010:WorkflowViewState.IdRef="If_41">
+                                                    <If.Then>
+                                                      <Sequence sap:VirtualizedContainerService.HintSize="376,410" sap2010:WorkflowViewState.IdRef="Sequence_211">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_156" Level="Error" Message="[&quot;----------------------------&quot;+Navigation_V11+&quot;-----------------------------&quot;]" />
+                                                        <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+                                                          <Assign.To>
+                                                            <OutArgument x:TypeArguments="x:Boolean">[Navigation_OutPut]</OutArgument>
+                                                          </Assign.To>
+                                                          <Assign.Value>
+                                                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                                          </Assign.Value>
+                                                        </Assign>
+                                                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_137" UnSafe="False" WorkflowFileName="Report.xaml">
+                                                          <ui:InvokeWorkflowFile.Arguments>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="addStatus">Fail</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="addModules">Navigation</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">["Navigation to"+Search_in_Menu+" : "+Search_UnderSpecific_Menu]</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">[Config("Reportpath").ToString]</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
+                                                          </ui:InvokeWorkflowFile.Arguments>
+                                                        </ui:InvokeWorkflowFile>
+                                                      </Sequence>
+                                                    </If.Then>
+                                                    <If.Else>
+                                                      <Sequence DisplayName="Sequence- If the Internal server error" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_212">
+                                                        <Sequence.Variables>
+                                                          <Variable x:TypeArguments="x:String" Name="Navigation_V12" />
+                                                        </Sequence.Variables>
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="713,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_138" UnSafe="False" WorkflowFileName="WaitForElementAndGetText.xaml">
+                                                          <ui:InvokeWorkflowFile.Arguments>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="selector" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
+&lt;webctrl aaname='Internal error occurred....' parentid='errorDetails' tag='DIV' innertext='Internal error occurred....' /&gt;
+</InArgument>
+                                                            <OutArgument x:TypeArguments="x:String" x:Key="getTextValue">[Navigation_V12]</OutArgument>
+                                                          </ui:InvokeWorkflowFile.Arguments>
+                                                        </ui:InvokeWorkflowFile>
+                                                        <If Condition="[Navigation_V12.Contains(&quot;Internal error&quot;)]" sap:VirtualizedContainerService.HintSize="713,239" sap2010:WorkflowViewState.IdRef="If_40">
+                                                          <If.Then>
+                                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_157" Level="Error" Message="[&quot;------------------Navigation is not done successfully+------------------------&quot;]" />
+                                                          </If.Then>
+                                                          <If.Else>
+                                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_158" Level="Error" Message="[&quot;------------------Navigation is not done successfully with other issues------------------------&quot;]" />
+                                                          </If.Else>
+                                                        </If>
+                                                        <Assign sap:VirtualizedContainerService.HintSize="713,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+                                                          <Assign.To>
+                                                            <OutArgument x:TypeArguments="x:Boolean">[Navigation_OutPut]</OutArgument>
+                                                          </Assign.To>
+                                                          <Assign.Value>
+                                                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                                          </Assign.Value>
+                                                        </Assign>
+                                                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="713,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_139" UnSafe="False" WorkflowFileName="Report.xaml">
+                                                          <ui:InvokeWorkflowFile.Arguments>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="addStatus">Fail</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="addModules">Navigation</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">["Navigation to"+Search_in_Menu+" : "+Search_UnderSpecific_Menu]</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">[Config("Reportpath").ToString]</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
+                                                          </ui:InvokeWorkflowFile.Arguments>
+                                                        </ui:InvokeWorkflowFile>
+                                                      </Sequence>
+                                                    </If.Else>
+                                                  </If>
+                                                </Sequence>
+                                              </If.Else>
+                                            </If>
+                                          </Sequence>
+                                        </If.Then>
+                                        <If.Else>
+                                          <If Condition="[Search_in_Menu.Contains(&quot;Process&quot;)]" DisplayName="If- On Process monitor dashboard" sap:VirtualizedContainerService.HintSize="1968,2465" sap2010:WorkflowViewState.IdRef="If_46">
+                                            <If.Then>
+                                              <Sequence DisplayName="Sequence- On Process Monitor Dashboard" sap:VirtualizedContainerService.HintSize="1723,2317" sap2010:WorkflowViewState.IdRef="Sequence_220">
+                                                <Sequence.Variables>
+                                                  <Variable x:TypeArguments="x:Boolean" Name="Navigation_V8" />
+                                                </Sequence.Variables>
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1681,91" sap2010:WorkflowViewState.IdRef="LogMessage_159" Level="Info" Message="[&quot;------------------Waiting for 30 scends------------------&quot;]" />
+                                                <Delay Duration="00:00:30" sap:VirtualizedContainerService.HintSize="1681,22" sap2010:WorkflowViewState.IdRef="Delay_4" />
+                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1681,91" sap2010:WorkflowViewState.IdRef="LogMessage_160" Level="Info" Message="[&quot;------------------Waited for 30 scends------------------&quot;]" />
+                                                <ui:UiElementExists DisplayName="Element Exists- On Search Icon" Exists="[Navigation_V6]" sap:VirtualizedContainerService.HintSize="1681,68" sap2010:WorkflowViewState.IdRef="UiElementExists_9">
+                                                  <ui:UiElementExists.Target>
+                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="07bd635a-90a9-4352-8bc6-57d7b6c2ad4b" Selector="&lt;webctrl id='WCsrchIcon' tag='DIV' /&gt;">
+                                                      <ui:Target.TimeoutMS>
+                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                      </ui:Target.TimeoutMS>
+                                                      <ui:Target.WaitForReady>
+                                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                      </ui:Target.WaitForReady>
+                                                    </ui:Target>
+                                                  </ui:UiElementExists.Target>
+                                                </ui:UiElementExists>
+                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1681,91" sap2010:WorkflowViewState.IdRef="LogMessage_161" Level="Info" Message="[&quot;----------------Identifying the Search icon is done ------------------&quot;]" />
+                                                <ui:UiElementExists DisplayName="Element Exists- On Title on Process monitor dashboard" Exists="[Navigation_V8]" sap:VirtualizedContainerService.HintSize="1681,68" sap2010:WorkflowViewState.IdRef="UiElementExists_10">
+                                                  <ui:UiElementExists.Target>
+                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="625f9a0b-f8a6-4045-a2c8-de84b8ca2f44" Selector="&lt;html app='chrome.exe' title='CLEAR' /&gt;&#xA;&lt;webctrl parentid='verticalText_0' tableRow='1' tag='SPAN' /&gt;&#xA;">
+                                                      <ui:Target.TimeoutMS>
+                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                      </ui:Target.TimeoutMS>
+                                                      <ui:Target.WaitForReady>
+                                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                      </ui:Target.WaitForReady>
+                                                    </ui:Target>
+                                                  </ui:UiElementExists.Target>
+                                                </ui:UiElementExists>
+                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1681,91" sap2010:WorkflowViewState.IdRef="LogMessage_162" Level="Info" Message="[&quot;----------------Identifying the Status icon is done ------------------&quot;]" />
+                                                <If Condition="[(Navigation_V6 and Navigation_V8)=True]" DisplayName="If- On Search and Title on Process monitor dashboard" sap:VirtualizedContainerService.HintSize="1681,1423" sap2010:WorkflowViewState.IdRef="If_45">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <If.Then>
+                                                    <Sequence sap:VirtualizedContainerService.HintSize="376,410" sap2010:WorkflowViewState.IdRef="Sequence_215">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_163" Level="Info" Message="[&quot;-------------------------Navigation to the Dashboard loaded successfully-------------&quot;]" />
+                                                      <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+                                                        <Assign.To>
+                                                          <OutArgument x:TypeArguments="x:Boolean">[Navigation_OutPut]</OutArgument>
+                                                        </Assign.To>
+                                                        <Assign.Value>
+                                                          <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                        </Assign.Value>
+                                                      </Assign>
+                                                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_140" UnSafe="False" WorkflowFileName="Report.xaml">
+                                                        <ui:InvokeWorkflowFile.Arguments>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="addStatus">Pass</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="addModules">Navigation</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">["Navigation to"+Search_in_Menu+" : "+Search_UnderSpecific_Menu]</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">[Config("Reportpath").ToString]</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
+                                                        </ui:InvokeWorkflowFile.Arguments>
+                                                      </ui:InvokeWorkflowFile>
+                                                    </Sequence>
+                                                  </If.Then>
+                                                  <If.Else>
+                                                    <Sequence sap:VirtualizedContainerService.HintSize="1260,1275" sap2010:WorkflowViewState.IdRef="Sequence_219">
+                                                      <Sequence.Variables>
+                                                        <Variable x:TypeArguments="x:String" Name="Navigation_V10" />
+                                                      </Sequence.Variables>
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1218,91" sap2010:WorkflowViewState.IdRef="LogMessage_164" Level="Info" Message="[&quot;-------------------------Navigation to the Dashboard is not successfully done-------------&quot;]" />
+                                                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Get on the &quot;No Records Found&quot; message" sap:VirtualizedContainerService.HintSize="1218,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_141" UnSafe="False" WorkflowFileName="WaitForElementAndGetText.xaml">
+                                                        <ui:InvokeWorkflowFile.Arguments>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="selector" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
+&lt;webctrl tag='P' aaname='No Record(s) Found.' innertext='No Record(s) Found.' /&gt;
+</InArgument>
+                                                          <OutArgument x:TypeArguments="x:String" x:Key="getTextValue">[Navigation_V10]</OutArgument>
+                                                        </ui:InvokeWorkflowFile.Arguments>
+                                                      </ui:InvokeWorkflowFile>
+                                                      <If Condition="[Navigation_V10.Contains(&quot;No Record&quot;)]" sap:VirtualizedContainerService.HintSize="1218,925" sap2010:WorkflowViewState.IdRef="If_44">
+                                                        <If.Then>
+                                                          <Sequence sap:VirtualizedContainerService.HintSize="376,410" sap2010:WorkflowViewState.IdRef="Sequence_216">
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_165" Level="Error" Message="[&quot;----------------------------&quot;+Navigation_V10+&quot;-----------------------------&quot;]" />
+                                                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                                              <Assign.To>
+                                                                <OutArgument x:TypeArguments="x:Boolean">[Navigation_OutPut]</OutArgument>
+                                                              </Assign.To>
+                                                              <Assign.Value>
+                                                                <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                                              </Assign.Value>
+                                                            </Assign>
+                                                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_142" UnSafe="False" WorkflowFileName="Report.xaml">
+                                                              <ui:InvokeWorkflowFile.Arguments>
+                                                                <InArgument x:TypeArguments="x:String" x:Key="addStatus">Fail</InArgument>
+                                                                <InArgument x:TypeArguments="x:String" x:Key="addModules">Navigation</InArgument>
+                                                                <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">["Navigation to"+Search_in_Menu+" : "+Search_UnderSpecific_Menu]</InArgument>
+                                                                <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">[Config("Reportpath").ToString]</InArgument>
+                                                                <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
+                                                              </ui:InvokeWorkflowFile.Arguments>
+                                                            </ui:InvokeWorkflowFile>
+                                                          </Sequence>
+                                                        </If.Then>
+                                                        <If.Else>
+                                                          <Sequence sap:VirtualizedContainerService.HintSize="797,777" sap2010:WorkflowViewState.IdRef="Sequence_218">
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                            <Sequence DisplayName="Sequence- If the Internal server error" sap:VirtualizedContainerService.HintSize="755,685" sap2010:WorkflowViewState.IdRef="Sequence_217">
+                                                              <Sequence.Variables>
+                                                                <Variable x:TypeArguments="x:String" Name="Navigation_V12" />
+                                                              </Sequence.Variables>
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="713,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_143" UnSafe="False" WorkflowFileName="WaitForElementAndGetText.xaml">
+                                                                <ui:InvokeWorkflowFile.Arguments>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="selector" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
+&lt;webctrl aaname='Internal error occurred....' parentid='errorDetails' tag='DIV' innertext='Internal error occurred....' /&gt;
+</InArgument>
+                                                                  <OutArgument x:TypeArguments="x:String" x:Key="getTextValue">[Navigation_V12]</OutArgument>
+                                                                </ui:InvokeWorkflowFile.Arguments>
+                                                              </ui:InvokeWorkflowFile>
+                                                              <If Condition="[Navigation_V12.Contains(&quot;Internal error&quot;)]" sap:VirtualizedContainerService.HintSize="713,239" sap2010:WorkflowViewState.IdRef="If_43">
+                                                                <If.Then>
+                                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_166" Level="Error" Message="[&quot;------------------Navigation is not done successfully+------------------------&quot;]" />
+                                                                </If.Then>
+                                                                <If.Else>
+                                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_167" Level="Error" Message="[&quot;------------------Navigation is not done successfully with other issues------------------------&quot;]" />
+                                                                </If.Else>
+                                                              </If>
+                                                              <Assign sap:VirtualizedContainerService.HintSize="713,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:Boolean">[Navigation_OutPut]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                                                </Assign.Value>
+                                                              </Assign>
+                                                              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="713,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_144" UnSafe="False" WorkflowFileName="Report.xaml">
+                                                                <ui:InvokeWorkflowFile.Arguments>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="addStatus">Fail</InArgument>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="addModules">Navigation</InArgument>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">["Navigation to"+Search_in_Menu+" : "+Search_UnderSpecific_Menu]</InArgument>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">[Config("Reportpath").ToString]</InArgument>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
+                                                                </ui:InvokeWorkflowFile.Arguments>
+                                                              </ui:InvokeWorkflowFile>
+                                                            </Sequence>
+                                                          </Sequence>
+                                                        </If.Else>
+                                                      </If>
+                                                    </Sequence>
+                                                  </If.Else>
+                                                </If>
+                                              </Sequence>
+                                            </If.Then>
+                                            <If.Else>
+                                              <Sequence sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_222">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <Sequence sap:VirtualizedContainerService.HintSize="376,310" sap2010:WorkflowViewState.IdRef="Sequence_221">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_168" Level="Warn" Message="[&quot;---------------------Navigation is not on the Task Board or Dashboard----------------------------&quot;]">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:LogMessage>
+                                                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_145" UnSafe="False" WorkflowFileName="Report.xaml">
+                                                    <ui:InvokeWorkflowFile.Arguments>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="addStatus">Fail</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="addModules">Navigation</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">["Navigation to"+Search_in_Menu+" : "+Search_UnderSpecific_Menu]</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">[Config("Reportpath").ToString]</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
+                                                    </ui:InvokeWorkflowFile.Arguments>
+                                                  </ui:InvokeWorkflowFile>
+                                                </Sequence>
+                                              </Sequence>
+                                            </If.Else>
+                                          </If>
+                                        </If.Else>
+                                      </If>
+                                    </Sequence>
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_169" Level="Error" Message="[&quot;------------------Expected specific Menu is not present under Menu------------------------------&quot;]">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:LogMessage>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_170" Level="Error" Message="[&quot;-----------------------Search_in_Menu is not matching-----------------------------&quot;]" />
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                    </Sequence>
+                  </If.Else>
+                </If>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_108" Level="Error" Message="[&quot;-----navigiationOpenClosePanel : Icon is not present on the daashboad-------&quot;]" />
+            </If.Else>
+          </If>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="5374,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_177" Level="Error" Message="[exception]" />
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>
