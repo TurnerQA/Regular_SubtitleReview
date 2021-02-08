@@ -191,13 +191,9 @@
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="713,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="WaitForElementAndGetText.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="selector">
-                <Literal x:TypeArguments="x:String" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
-&lt;webctrl parentid='alertWrapper' tag='DIV' aaname='Task assigned to you successfully' /&gt;</Literal>
-              </InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="getTextValue">
-                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="Sub_TSK_Pick_Alert_Msg" />
-              </OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="selector" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
+&lt;webctrl parentid='alertWrapper' tag='DIV' aaname='Task assigned to you successfully' /&gt;</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="getTextValue">[Sub_TSK_Pick_Alert_Msg]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <If Condition="[Sub_TSK_Pick_Alert_Msg.Contains(&quot;Task assigned to you successfully&quot;)]" sap:VirtualizedContainerService.HintSize="713,239" sap2010:WorkflowViewState.IdRef="If_2">
@@ -210,11 +206,21 @@
           </If>
           <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="713,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Report.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="addStatus">Pass</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="addModules">Subtitle Task Pick</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">Subtitle Task is successfully picked</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">D:\Document Folder\UiPath\Longform_SubtitleReview_Bot\Data\Report.xlsx</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="addStatus">
+                <Literal x:TypeArguments="x:String">Pass</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="addModules">
+                <Literal x:TypeArguments="x:String" xml:space="preserve">Subtitle Review Task </Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">
+                <Literal x:TypeArguments="x:String">Successfully subtitle review task got picked</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">
+                <Literal x:TypeArguments="x:String">D:\Document Folder\UiPath\Longform_SubtitleReview_Bot\Data\Report.xlsx</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="SheetName">
+                <Literal x:TypeArguments="x:String">Results</Literal>
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>
@@ -229,11 +235,21 @@
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Error while picking the task&quot;]" />
           <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Report.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="addStatus">Fail</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="addModules">Subtitle Task Pick</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">Subtitle Task is not successfully picked</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">D:\Document Folder\UiPath\Longform_SubtitleReview_Bot\Data\Report.xlsx</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="SheetName">Results</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="addStatus">
+                <Literal x:TypeArguments="x:String">Fail</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="addModules">
+                <Literal x:TypeArguments="x:String">Subtitle Review Task Pick</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">
+                <Literal x:TypeArguments="x:String">Subtitle Task is not successfully picked</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath">
+                <Literal x:TypeArguments="x:String">D:\Document Folder\UiPath\Longform_SubtitleReview_Bot\Data\Report.xlsx</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="SheetName">
+                <Literal x:TypeArguments="x:String">Results</Literal>
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>
